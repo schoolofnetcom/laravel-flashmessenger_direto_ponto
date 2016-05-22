@@ -17,7 +17,7 @@ class CoursesController extends Controller
     public function index()
     {
         $courses = Course::all();
-        return view('courses.index',compact('courses'));
+        return view('courses.index', compact('courses'));
     }
 
     /**
@@ -33,19 +33,22 @@ class CoursesController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
         Course::create($request->all());
+        flash()->success('Course created!');
+        //session()->flash('flash_message', 'Course created!');
+        //session()->flash('flash_message_type', BOOTSTRAP_ERROR);
         return redirect()->route('courses.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -56,20 +59,20 @@ class CoursesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
         $course = Course::find($id);
-        return view('courses.edit',compact('course'));
+        return view('courses.edit', compact('course'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -83,7 +86,7 @@ class CoursesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

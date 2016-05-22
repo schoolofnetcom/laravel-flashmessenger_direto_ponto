@@ -21,7 +21,7 @@
                     @endif
                     @foreach($courses as $course)
                         <div class="col-md-2">
-                            <div class="panel panel-default">
+                            <div class="panel panel-{{ bootstrap_message() }}">
                                 <div class="panel-heading">
                                     <a href="{{route('courses.edit',['courses' => $course->id])}}">
                                         {{ $course->title }}
