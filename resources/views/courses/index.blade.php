@@ -7,7 +7,7 @@
                 <div class="panel panel-primary">
                     <div class="panel-heading">
                         Courses |
-                        <a href="{{ route('courses.create') }}" class="btn btn-default">Novo</a>
+                        <a href="{{ route('courses.create') }}" class="btn btn-default">New</a>
                     </div>
                     <div class="panel-body">
                         @if (count($errors) > 0)
